@@ -1,13 +1,13 @@
-use crate::lexer::Lexer;
-
+use crate::lexer::{Lexer, TokenType};
 mod lexer;
 
 fn main() {
-    let source = "LET foobar = 123";
+    let source = "+- */";
     let mut lexer = Lexer::new(source);
 
-    while lexer.peek() != '\0' {
-        println!("{}", lexer.cur_char);
-        lexer.next_char();
+    let mut token = lexer.get_token();
+    while token.kind == TokenType::EOF {
+        println!("{:?}", token.kind);
+        token = lexer.get_token();
     }
 }
