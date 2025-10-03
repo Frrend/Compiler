@@ -59,8 +59,7 @@ impl Lexer {
     }
 }
 
-#[derive(Debug)]
-#[derive(PartialEq)]
+#[derive(Debug,PartialEq)]
 pub enum TokenType {
     EOF = -1,
     NEWLINE = 0,
